@@ -18,6 +18,11 @@
 </head>
 <body>
 
+<nav class="viewswitch" aria-label="Poster view">
+  <button type="button" data-view="board" aria-selected="true">Interactive</button>
+  <button type="button" data-view="sheet" aria-selected="false">Poster</button>
+</nav>
+
 <main class="board">
 
   <!-- =====================================================================
@@ -28,13 +33,9 @@
     <header class="masthead">
       <img class="mark" src="assets/figures/logo.webp" alt="ReLEAF team logo" />
       <div>
-        <h1 class="wordmark">Re<em>LEAF</em> · Every Farmer a Biomanufacturer</h1>
+        <p class="eyebrow">GEMS Taiwan · Team 6072 · Taipei · iGEM 2026 · Biomanufacturing Village</p>
+        <h1 class="wordmark">Re<em>LEAF</em> — Every Farmer a Biomanufacturer</h1>
         <p class="subtitle">A stress-responsive optogenetic bioreactor for precision plant protection</p>
-      </div>
-      <div class="ribbon">
-        <b>GEMS Taiwan</b>
-        Team 6072 · Taipei, Taiwan<br />
-        iGEM 2026 · Biomanufacturing Village
       </div>
     </header>
 
@@ -60,9 +61,9 @@
         <path class="flow c"    d="M126 110 H494 A30 30 0 0 1 524 140 V260 A30 30 0 0 1 494 290 H126 A30 30 0 0 1 96 260 V140 A30 30 0 0 1 126 110 Z"/>
 
         <!-- the thesis, in the middle of its own loop -->
-        <text class="loop-caption" x="310" y="186" text-anchor="middle">Closed loop</text>
-        <text x="310" y="208" text-anchor="middle" style="font-size:13px;font-weight:700;fill:var(--leaf-900);letter-spacing:-.015em">The culture stays in.</text>
-        <text x="310" y="226" text-anchor="middle" style="font-size:13px;font-weight:700;fill:var(--leaf-500);letter-spacing:-.015em">Only the protectant leaves.</text>
+        <text class="loop-caption" x="310" y="186" text-anchor="middle">CLOSED LOOP</text>
+        <text class="loop-claim" x="310" y="209" text-anchor="middle">The culture stays in.</text>
+        <text class="loop-claim g" x="310" y="228" text-anchor="middle">Only the protectant leaves.</text>
 
         <!-- 01 SENSE -->
         <g class="node" data-goes="sense" data-step="1" role="button" tabindex="0" aria-label="Station 1, Sense">
@@ -191,7 +192,7 @@
         <button type="button" data-goes="design">Design</button>
         <button type="button" data-goes="modelling">Modelling</button>
         <button type="button" data-goes="results">Results</button>
-        <button type="button" data-goes="limits">What we have not shown</button>
+        <button type="button" data-goes="limits">Not shown</button>
         <button type="button" data-goes="safety">Safety &amp; rules</button>
         <button type="button" data-goes="team">Team &amp; thanks</button>
       </nav>
@@ -915,6 +916,102 @@
 
   </section>
 </main>
+
+<!-- =====================================================================
+     THE SHEET — a true A0 portrait poster, 841 x 1189 mm.
+     The ten boxed sections are composed from the panes above by poster.js,
+     so there is one copy of every sentence. Only the three blocks below
+     belong to the printed poster alone.
+     ================================================================== -->
+<div class="sheetwrap">
+  <article class="sheet" aria-label="ReLEAF academic poster, A0 portrait">
+
+    <header class="ps-head">
+      <img class="ps-mark" src="assets/figures/logo.webp" alt="ReLEAF team logo" />
+      <div>
+        <p class="ps-eyebrow">iGEM 2026 · Biomanufacturing Village</p>
+        <h1 class="ps-title">Re<em>LEAF</em> — Every Farmer a Biomanufacturer</h1>
+        <p class="ps-sub">A stress-responsive optogenetic bioreactor for precision plant protection:
+          engineered <i>Bacillus subtilis</i> makes the crop protectant on the farm, on demand,
+          and never leaves the machine.</p>
+      </div>
+      <div class="ps-badge">
+        <b>GEMS Taiwan</b>
+        Team 6072<br />Taipei, Taiwan
+      </div>
+    </header>
+
+    <section class="ps-authors">
+      <b>Abigail Lin, Anton Lin, Chloe Wu, Jacquelyn Inocencio, Sophie Chen, Abby Kao,
+      Abby Tsai, Alex Li, Anna Chuang, Felix Yu, Joshua Hong, Naomi Lin, Noah Tau, Olivia Du,
+      Sophia Lin, Sophia Yeh, Sophie Liu, Audrey Chu, Audrey Hsieh, Ethan Chang, Ethan Liu,
+      Mia Guo, Olivia Lin, Phoebe Chen, Renee Kuo, Ryan Wei, Ryan Yuan, Sara Chen, Sarah Chou,
+      Sophie Huang, Eva Zhong.</b>
+      <span>GEMS Taiwan is a multi-school team based in Taipei, Taiwan, drawing students from
+      TAS, KCIS, WEGO, IBSH, FHJH, KCISLK, TES and AAIA. Instructors: Chars Hsieh, Gabriel Ng,
+      Gina Yu (Wet Lab) · Timmy (Dry Lab) · Jessie Lau (Human Practices) · Dr. Pak (Project
+      Advisor). Student advisors: Dylan Huang, Hachi Wu, Neo Su, Venus Tay.</span>
+    </section>
+
+    <!-- the graphical abstract, across the full sheet -->
+    <section class="ps-sec ps-sec--well ps-wide" id="ps-wide">
+      <h2 class="ps-h">The system</h2>
+    </section>
+
+    <div class="ps-cols">
+      <div class="ps-col" id="ps-col-1"></div>
+      <div class="ps-col" id="ps-col-2"></div>
+      <div class="ps-col" id="ps-col-3"></div>
+    </div>
+
+    <footer class="ps-foot">
+      <div>
+        <b>ReLEAF · GEMS Taiwan · iGEM 2026 · Biomanufacturing Village.</b><br />
+        © 2026 · Licensed under a Creative Commons Attribution 4.0 International license.
+        Wiki repository: gitlab.igem.org/2026/gems-taiwan
+      </div>
+      <div>
+        References: Central Weather Administration CODiS · Ministry of Agriculture
+        農業統計年報 114年 · NSTC TCCIP · ERA5 · FAO 2025 · Weber <i>et al.</i> 2011 ·
+        Penrose &amp; Glick 2003 · Tabor <i>et al.</i> CcaS/CcaR · Regulation (EU) 2019/1009 ·
+        Taiwan Fertilizer Management Act.
+      </div>
+      <div class="ps-url">2026.igem.wiki/gems-taiwan</div>
+    </footer>
+
+  </article>
+</div>
+
+<!-- the two blocks that exist only on the printed sheet -->
+<template id="ps-system">
+  <div class="ps-wide-grid">
+    <div>
+      <div class="ps-loop"></div>
+      <p class="ps-loopcap">The ReLEAF loop. Six stations on one closed circuit: the culture
+        stays in, only the protectant leaves. Each station is built and measured; the chain
+        between them has not yet been joined end to end.</p>
+    </div>
+    <div class="ps-stations">
+      <div class="ps-station"><i>01</i><div><b>Sense</b> — leaf temperature and wetness at the canopy, with the weather forecast.</div></div>
+      <div class="ps-station"><i>02</i><div><b>Predict</b> — a digital twin scores a stress index and forecasts biomass 2–12 h ahead.</div></div>
+      <div class="ps-station"><i>03</i><div><b>Induce</b> — the farmer approves; green light (~535 nm) switches the CcaS/CcaR circuit on, red (~670 nm) off.</div></div>
+      <div class="ps-station"><i>04</i><div><b>Secrete</b> — <i>B. subtilis</i> WB800 secretes ACC deaminase into a 1 L perfusion culture at 37 °C.</div></div>
+      <div class="ps-station"><i>05</i><div><b>Separate</b> — a 0.2 µm hollow-fiber cartridge retains the cells and recovers the product in one step.</div></div>
+      <div class="ps-station"><i>06</i><div><b>Apply</b> — the farmer dilutes the harvest by the factor the app states and sprays. No laboratory skills needed.</div></div>
+    </div>
+  </div>
+</template>
+
+<template id="ps-conclusion">
+  <p class="lede">We have a machine that grows a secreting culture for three days unattended,
+    keeps every cell inside a membrane that still passes the product, and hands a cell-free
+    protectant to a person with no laboratory training.</p>
+  <p>What leaves the system is the protein, not the cells that made it — and that one design
+    choice, taken on a professor's advice in April after we had planned a soil release, is
+    what decides the regulatory pathway as well as the biosafety case.</p>
+  <p><strong>We do not yet have a validated dose, and the loop has never been closed end to
+    end.</strong> Both are the work that follows.</p>
+</template>
 
 <!-- the lightbox: a judge should be able to read the data, not squint at it -->
 <div class="lens" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Figure, enlarged">

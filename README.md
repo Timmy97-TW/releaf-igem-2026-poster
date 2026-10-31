@@ -10,29 +10,45 @@ Open `index.html` — there is nothing to build and nothing to install.
 
 ---
 
-## What it is
+## Two views of one poster
 
-An interactive poster in the shape iGEM asks for: a **visual abstract on the left** and
-**documentation on the right**, with the left driving the right.
+The switch at the corner of the page moves between them. They share every sentence: the
+sheet is composed from the board's own markup at load, so the two cannot drift apart.
 
-The difference from a wall of boxes is that the navigation *is* the project. The six
-stations on the left are the six stages of the ReLEAF system — Sense, Predict, Induce,
-Secrete, Separate, Apply — drawn as a closed circuit with material moving along it.
-Choosing a station opens its documentation. The loop is the diagram and the menu at once.
+**Interactive** — the shape iGEM asks for: a **visual abstract on the left** and
+**documentation on the right**, with the left driving the right. The difference from a wall
+of boxes is that the navigation *is* the project. The six stations are the six stages of the
+ReLEAF system — Sense, Predict, Induce, Secrete, Separate, Apply — drawn as a closed circuit
+with material moving along it. Choosing a station opens its documentation. The loop is the
+diagram and the menu at once. Fifteen sections in all: the six stations, plus Abstract,
+Problem, Inspiration, Design, Modelling, Results, What we have not shown, Safety & rules,
+and Team & thanks.
 
-Fifteen sections in all: the six stations, plus Abstract, Problem, Inspiration, Design,
-Modelling, Results, What we have not shown, Safety & rules, and Team & thanks.
+**Poster** — a real academic poster, **A0 portrait, 841 × 1189 mm**, set in points and
+measured to the millimetre. Masthead, author band, a full-width graphical abstract, then ten
+numbered sections down three columns, ending on a conclusion card and the acknowledgements.
+It is scaled to fit the window on screen and prints at 1:1 on one sheet.
+
+## The look
+
+Both views are drawn in the wiki's own soft language — the one the Integrated Human
+Practices page set and the Project pages took: `#1d1d1f` ink on `#f5f5f7`, white cards at a
+28 px radius, frosted segmented controls, shadows that are wide and faint rather than dark,
+and nothing given a hard border where a soft one will do. The leaf greens came off the team
+hoodie. Tokens are copied from `static/assets/css/engage.css` and `tokens.css` in the wiki
+repository, so the poster reads as part of the same body of work.
 
 ## Reading it
 
 | | |
 |---|---|
+| The switch at the corner | moves between the interactive view and the A0 poster |
 | Click a station, or a headline number | opens that section |
 | `←` `→` | step around the loop |
 | Click any figure | opens it full size, with its legend |
 | `Esc` | closes the figure |
-| The address bar | carries the open section, e.g. `#separate` — paste that link to send someone straight to it |
-| `⌘P` / `Ctrl-P` | prints the whole poster to A0, every section expanded |
+| The address bar | carries the open section, e.g. `#separate`, or `#poster` for the A0 sheet — paste either to send someone straight there |
+| `⌘P` / `Ctrl-P` | prints whichever view is open: the sheet at A0 1:1, or the interactive view as an A0 with every section expanded |
 
 ## How it meets the iGEM poster brief
 
@@ -49,10 +65,10 @@ Built against <https://2020.igem.org/Competition/Deliverables/Poster>.
 - **A visual abstract first.** The left column carries the title, the one-paragraph claim,
   the system diagram and six headline results without a single click.
 
-It also does two things the brief does not ask for. A **print stylesheet** turns the same
-file into a real A0 poster with every section opened and set in three columns. And one
-section — **What we have not shown** — lists the gaps the team's own pages declare, because
-a poster that only lists what worked is not a result.
+It also does two things the brief does not ask for. The **second view is a real A0 poster**,
+for a printed session rather than a screen. And one section — **What we have not shown** —
+lists the gaps the team's own pages declare, because a poster that only lists what worked is
+not a result.
 
 ## Honesty
 
@@ -65,9 +81,9 @@ plates with no quantified log reduction.
 ## Layout
 
 ```
-index.html              the poster
-assets/poster.css       design tokens, board, loop, documentation, print sheet
-assets/poster.js        navigation, deep links, lightbox
+index.html              both views, and the sections they share
+assets/poster.css       tokens, the board, the loop, the A0 sheet, print
+assets/poster.js        navigation, deep links, lightbox, and the sheet builder
 assets/fonts/           Inter variable, subset (SIL OFL 1.1)
 assets/figures/         figures and photographs, taken from the team wiki
 ```
