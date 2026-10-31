@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ReLEAF — Every Farmer a Biomanufacturer | GEMS Taiwan, iGEM 2026</title>
+<meta name="description" content="ReLEAF: a stress-responsive optogenetic bioreactor for precision plant protection. Team poster, GEMS Taiwan (team 6072), iGEM 2026, Biomanufacturing Village." />
+<link rel="icon" href="assets/figures/logo.webp" />
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/" />
+<link rel="stylesheet" href="assets/poster.css" />
+<noscript><style>
+  .pane { display: block !important; margin-bottom: 2rem; }
+  .pane::before { content: attr(data-title); display: block; font-weight: 760;
+    color: #14402b; border-bottom: 1px solid #4f9c6f; margin-bottom: .5rem; }
+  .rail, .docs-head h2, .docs-head .pin { display: none; }
+  body, .board, .docs-body { overflow: visible; height: auto; max-height: none; }
+</style></noscript>
+</head>
+<body>
+
+<main class="board">
+
+  <!-- =====================================================================
+       LEFT — the visual abstract
+       ================================================================== -->
+  <section class="visual" aria-label="Visual abstract">
+
+    <header class="masthead">
+      <img class="mark" src="assets/figures/logo.webp" alt="ReLEAF team logo" />
+      <div>
+        <h1 class="wordmark">Re<em>LEAF</em> · Every Farmer a Biomanufacturer</h1>
+        <p class="subtitle">A stress-responsive optogenetic bioreactor for precision plant protection</p>
+      </div>
+      <div class="ribbon">
+        <b>GEMS Taiwan</b>
+        Team 6072 · Taipei, Taiwan<br />
+        iGEM 2026 · Biomanufacturing Village
+      </div>
+    </header>
+
+    <p class="claim">
+      Crop-protection products exist, but for a smallholder they can stay out of reach.
+      <strong>ReLEAF makes the protectant on the farm, only when the crop needs it.</strong>
+      A leaf sensor predicts stress, green light switches on engineered
+      <i>Bacillus subtilis</i> sealed inside a benchtop reactor, and a 0.2&nbsp;µm hollow-fiber
+      membrane lets the protectant out while every cell stays in.
+    </p>
+
+    <!-- The loop is the diagram and the navigation at once. Six stations on a
+         closed circuit; the plates sit over the pipe so the corner curves are
+         occluded and material reads as entering and leaving each station. -->
+    <div class="loop">
+      <svg viewBox="12 68 596 250" role="group"
+           aria-label="The ReLEAF loop: six stations on a closed cycle. Choose one to read it.">
+
+        <path class="pipe-edge" d="M126 110 H494 A30 30 0 0 1 524 140 V260 A30 30 0 0 1 494 290 H126 A30 30 0 0 1 96 260 V140 A30 30 0 0 1 126 110 Z"/>
+        <path class="pipe"      d="M126 110 H494 A30 30 0 0 1 524 140 V260 A30 30 0 0 1 494 290 H126 A30 30 0 0 1 96 260 V140 A30 30 0 0 1 126 110 Z"/>
+        <path class="flow"      d="M126 110 H494 A30 30 0 0 1 524 140 V260 A30 30 0 0 1 494 290 H126 A30 30 0 0 1 96 260 V140 A30 30 0 0 1 126 110 Z"/>
+        <path class="flow b"    d="M126 110 H494 A30 30 0 0 1 524 140 V260 A30 30 0 0 1 494 290 H126 A30 30 0 0 1 96 260 V140 A30 30 0 0 1 126 110 Z"/>
+        <path class="flow c"    d="M126 110 H494 A30 30 0 0 1 524 140 V260 A30 30 0 0 1 494 290 H126 A30 30 0 0 1 96 260 V140 A30 30 0 0 1 126 110 Z"/>
+
+        <!-- the thesis, in the middle of its own loop -->
+        <text class="loop-caption" x="310" y="186" text-anchor="middle">Closed loop</text>
+        <text x="310" y="208" text-anchor="middle" style="font-size:13px;font-weight:700;fill:var(--leaf-900);letter-spacing:-.015em">The culture stays in.</text>
+        <text x="310" y="226" text-anchor="middle" style="font-size:13px;font-weight:700;fill:var(--leaf-500);letter-spacing:-.015em">Only the protectant leaves.</text>
+
+        <!-- 01 SENSE -->
+        <g class="node" data-goes="sense" data-step="1" role="button" tabindex="0" aria-label="Station 1, Sense">
+          <rect class="plate" x="20" y="75" width="152" height="70" rx="12"/>
+          <circle class="disc" cx="46" cy="110" r="17"/>
+          <g transform="translate(46,110)">
+            <path class="glyph" d="M-5 6 C-6 -1 -1 -6 6 -6 C6 1 1 6 -5 6 Z"/>
+            <path class="glyph" d="M-6 7 L1 0"/>
+          </g>
+          <text class="step" x="70" y="95">01</text>
+          <text class="name" x="70" y="112">Sense</text>
+          <text class="note" x="70" y="127">leaf heat + wetness</text>
+        </g>
+
+        <!-- 02 PREDICT -->
+        <g class="node" data-goes="predict" data-step="2" role="button" tabindex="0" aria-label="Station 2, Predict">
+          <rect class="plate" x="234" y="75" width="152" height="70" rx="12"/>
+          <circle class="disc" cx="260" cy="110" r="17"/>
+          <g transform="translate(260,110)">
+            <path class="glyph" d="M-7 7 V-7 M-7 7 H7"/>
+            <path class="glyph" d="M-5 4 L-1 -1 L2 2 L6 -5"/>
+          </g>
+          <text class="step" x="284" y="95">02</text>
+          <text class="name" x="284" y="112">Predict</text>
+          <text class="note" x="284" y="127">stress index, 2–12 h</text>
+        </g>
+
+        <!-- 03 INDUCE -->
+        <g class="node" data-goes="induce" data-step="3" role="button" tabindex="0" aria-label="Station 3, Induce">
+          <rect class="plate" x="448" y="75" width="152" height="70" rx="12"/>
+          <circle class="disc" cx="474" cy="110" r="17"/>
+          <g transform="translate(474,110)">
+            <circle class="glyph" cx="0" cy="0" r="3.4"/>
+            <path class="glyph" d="M0 -8.4 V-6 M0 6 V8.4 M-8.4 0 H-6 M6 0 H8.4 M-5.9 -5.9 L-4.2 -4.2 M4.2 4.2 L5.9 5.9 M5.9 -5.9 L4.2 -4.2 M-4.2 4.2 L-5.9 5.9"/>
+          </g>
+          <text class="step" x="498" y="95">03</text>
+          <text class="name" x="498" y="112">Induce</text>
+          <text class="note" x="498" y="127">green light on</text>
+        </g>
+
+        <!-- 04 SECRETE -->
+        <g class="node" data-goes="secrete" data-step="4" role="button" tabindex="0" aria-label="Station 4, Secrete">
+          <rect class="plate" x="448" y="255" width="152" height="70" rx="12"/>
+          <circle class="disc" cx="474" cy="290" r="17"/>
+          <g transform="translate(474,290)">
+            <ellipse class="glyph" cx="-2" cy="0" rx="5.4" ry="4"/>
+            <circle class="glyph-f" cx="6" cy="-4.2" r="1.5"/>
+            <circle class="glyph-f" cx="8" cy="1" r="1.2"/>
+            <circle class="glyph-f" cx="4.6" cy="5" r="1.2"/>
+          </g>
+          <text class="step" x="498" y="275">04</text>
+          <text class="name" x="498" y="292">Secrete</text>
+          <text class="note" x="498" y="307">ACC deaminase</text>
+        </g>
+
+        <!-- 05 SEPARATE -->
+        <g class="node" data-goes="separate" data-step="5" role="button" tabindex="0" aria-label="Station 5, Separate">
+          <rect class="plate" x="234" y="255" width="152" height="70" rx="12"/>
+          <circle class="disc" cx="260" cy="290" r="17"/>
+          <g transform="translate(260,290)">
+            <path class="glyph" d="M-2.6 -7.5 V7.5 M2.6 -7.5 V7.5"/>
+            <circle class="glyph-f" cx="-7" cy="-3" r="1.6"/>
+            <circle class="glyph-f" cx="-7" cy="3.4" r="1.6"/>
+            <circle class="glyph-f" cx="7.2" cy="0" r="1.4"/>
+          </g>
+          <text class="step" x="284" y="275">05</text>
+          <text class="name" x="284" y="292">Separate</text>
+          <text class="note" x="284" y="307">0.2 µm membrane</text>
+        </g>
+
+        <!-- 06 APPLY -->
+        <g class="node" data-goes="apply" data-step="6" role="button" tabindex="0" aria-label="Station 6, Apply">
+          <rect class="plate" x="20" y="255" width="152" height="70" rx="12"/>
+          <circle class="disc" cx="46" cy="290" r="17"/>
+          <g transform="translate(46,290)">
+            <path class="glyph" d="M0 -8 C3.6 -2.6 6 .4 6 2.6 A6 6 0 0 1 -6 2.6 C-6 .4 -3.6 -2.6 0 -8 Z"/>
+          </g>
+          <text class="step" x="70" y="275">06</text>
+          <text class="name" x="70" y="292">Apply</text>
+          <text class="note" x="70" y="307">dilute and spray</text>
+        </g>
+
+      </svg>
+    </div>
+
+    <!-- the evidence line: every number here is also in the pane it opens -->
+    <div class="figures" aria-label="Headline results">
+      <button class="fig" data-goes="separate" type="button">
+        <span class="n">0</span>
+        <span class="k">colonies on the shell side after 24&nbsp;h — the cells stayed in</span>
+      </button>
+      <button class="fig" data-goes="results" type="button">
+        <span class="n">77<small>h</small></span>
+        <span class="k">unattended run, pH held at 7.00 by 53 automatic doses</span>
+      </button>
+      <button class="fig" data-goes="results" type="button">
+        <span class="n">3.34</span>
+        <span class="k">peak OD<sub>600</sub>, read in line with no sample drawn</span>
+      </button>
+      <button class="fig" data-goes="secrete" type="button">
+        <span class="n">6.5<small>µg/mL</small></span>
+        <span class="k">peak ACC deaminase in the harvest stream, at 12&nbsp;h</span>
+      </button>
+      <button class="fig" data-goes="predict" type="button">
+        <span class="n">26.7<small>h</small></span>
+        <span class="k">warning the twin gave before the sensor failed</span>
+      </button>
+      <button class="fig" data-goes="team" type="button">
+        <span class="n">35</span>
+        <span class="k">parts on the Registry · 31 stakeholders · 5 open devices</span>
+      </button>
+    </div>
+
+  </section>
+
+  <!-- =====================================================================
+       RIGHT — the documentation
+       ================================================================== -->
+  <section class="docs" aria-label="Poster documentation">
+
+    <div class="docs-head">
+      <nav class="rail" aria-label="Poster sections">
+        <button type="button" data-goes="abstract">Abstract</button>
+        <button type="button" data-goes="problem">Problem</button>
+        <button type="button" data-goes="inspiration">Inspiration</button>
+        <button type="button" data-goes="design">Design</button>
+        <button type="button" data-goes="modelling">Modelling</button>
+        <button type="button" data-goes="results">Results</button>
+        <button type="button" data-goes="limits">What we have not shown</button>
+        <button type="button" data-goes="safety">Safety &amp; rules</button>
+        <button type="button" data-goes="team">Team &amp; thanks</button>
+      </nav>
+      <div class="docs-title">
+        <span class="pin"></span>
+        <h2></h2>
+      </div>
+    </div>
+
+    <div class="docs-body">
+
+      <!-- ABSTRACT ------------------------------------------------------ -->
+      <article class="pane" id="pane-abstract" data-pin="Abstract" data-title="Every Farmer a Biomanufacturer" data-print-title="Abstract">
+        <p class="lede">
+          ReLEAF strengthens agricultural resilience by making crop protectants on the farm,
+          on demand, inside a closed bioreactor — shifting from reactive chemical management
+          to proactive, precision crop defence.
+        </p>
+        <p>
+          Taiwan's climate is swinging faster than farming practice can adapt, and the farms
+          absorbing the swing are small and ageing. We built a benchtop
+          <strong>hollow-fiber perfusion bioreactor</strong> that grows engineered
+          <i>Bacillus subtilis</i> and physically retains every cell while the protectant it
+          secretes crosses a 0.2&nbsp;µm membrane into a separate harvest stream. A leaf sensor
+          and a digital twin decide <em>when</em> to produce; green light decides <em>whether</em>
+          the cells produce at all; the farmer dilutes the harvest and sprays it.
+        </p>
+        <p>
+          The cells never leave the machine, so the thing that reaches the field is a
+          cell-free agricultural input, not an organism. That one design choice — taken on
+          a professor's advice in April, after we had planned a soil release — is what makes
+          the system deployable, and it is what the containment plates test.
+        </p>
+
+        <h3>Authors</h3>
+        <p style="font-size:.78em;line-height:1.5">
+          Abigail Lin, Anton Lin, Chloe Wu, Jacquelyn Inocencio, Sophie Chen,
+          Abby Kao, Abby Tsai, Alex Li, Anna Chuang, Felix Yu, Joshua Hong, Naomi Lin,
+          Noah Tau, Olivia Du, Sophia Lin, Sophia Yeh, Sophie Liu,
+          Audrey Chu, Audrey Hsieh, Ethan Chang, Ethan Liu, Mia Guo, Olivia Lin,
+          Phoebe Chen, Renee Kuo, Ryan Wei, Ryan Yuan, Sara Chen, Sarah Chou,
+          Sophie Huang, Eva Zhong.
+        </p>
+        <p style="font-size:.78em;line-height:1.5;color:var(--gray-500)">
+          GEMS Taiwan is a multi-school team based in Taipei, Taiwan, drawing students from
+          TAS, KCIS, WEGO, IBSH, FHJH, KCISLK, TES and AAIA.
+        </p>
+
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/hero-team-1400-home.webp">
+            <img src="assets/figures/hero-team-1400-home.webp" alt="The ReLEAF team walking in single file between bean trellises on a farm in Tamsui." />
+          </button>
+          <figcaption>The team walking Farmer Chen's field in Tamsui, where the project's governing question came from.</figcaption>
+        </figure>
+      </article>
+
+      <!-- PROBLEM ------------------------------------------------------- -->
+      <article class="pane" id="pane-problem" data-pin="Introduction" data-title="A faster climate on smaller farms" data-print-title="Introduction">
+        <p class="lede">Two problems overlap on the same land: the weather is changing faster than the practice built for it, and the farms absorbing that change are the least able to.</p>
+
+        <div class="rows">
+          <div><span>Taiwan's warming since 1991, per decade</span><b>0.29 °C</b></div>
+          <div><span>Earlier rate, averaged over the century</span><b>0.11 °C</b></div>
+          <div><span>Taipei days above 35 °C in 2024</span><b>63</b></div>
+          <div><span>Farms under 2 hectares</span><b>99.2%</b></div>
+          <div><span>Farmland those farms work</span><b>85.3%</b></div>
+          <div><span>Average Taiwanese farmer's age</span><b>63.5 yr</b></div>
+          <div><span>Flash droughts reaching drought in ≤5 days</span><b>34–46%</b></div>
+        </div>
+
+        <p>
+          Reading crop stress early has always depended on someone who can walk a field and
+          read it. More than half of Taiwan's farmers are over 65, and that skill is leaving
+          with them — just as the window it was built for has shrunk.
+        </p>
+        <p>
+          <strong>Protection exists; access does not.</strong> Crop-protection products are on
+          the market, but for a smallholder they depend on cost, availability and getting the
+          right treatment in time. ReLEAF is a filter on that gap, not a new molecule.
+        </p>
+
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/threat-map-5-home.webp">
+            <img src="assets/figures/threat-map-5-home.webp" alt="Map of Taiwan with farmland coloured by climate volatility." />
+          </button>
+          <figcaption>Taiwan's farmland coloured by climate volatility. The western plain from Yunlin to Tainan — where the smallholdings concentrate — sits in the two most volatile classes.</figcaption>
+        </figure>
+
+        <p style="font-size:.76em;color:var(--gray-500)">
+          Sources: Central Weather Administration (CODiS, 1991–2020); Ministry of Agriculture,
+          農業統計年報 114年; NSTC TCCIP; ERA5 reanalysis.
+        </p>
+      </article>
+
+      <!-- INSPIRATION --------------------------------------------------- -->
+      <article class="pane" id="pane-inspiration" data-pin="Inspiration" data-title="The project a farmer and two professors redrew" data-print-title="Inspiration and Human Practices">
+        <p class="lede">
+          ReLEAF started with one question from farmers in Ghana: <em>are abiotic stresses really
+          affecting our crops?</em> Thirty-one stakeholders later, almost nothing of the first
+          design survives.
+        </p>
+
+        <h3>Four conversations that changed the build</h3>
+        <ul>
+          <li><strong>A process-engineering professor, 10 April.</strong> We had planned to release engineered <i>B. subtilis</i> into soil as a stress-sensing PGPR. He told us to design the hardware as the printer and the cells as the ink. <em>The project stopped being a release and became a contained machine.</em></li>
+          <li><strong>A plant-engineering researcher, 18 April.</strong> We were designing a kill switch. He argued physical containment should be the primary barrier. <em>The 0.2 µm hollow-fiber membrane exists because of this conversation.</em></li>
+          <li><strong>A protectant chemist, 27 June.</strong> We were building production into the reactor before validating the protectant. <em>He reordered the entire experimental programme: test the purified protectant on plants first.</em></li>
+          <li><strong>A natural-farming farmer, 21 July.</strong> &ldquo;Sometimes, giving too much is not necessarily beneficial for a living organism; instead, it can take away its ability to survive and thrive on its own.&rdquo; <em>Our thresholds were raised so plants still overcome some stress themselves.</em></li>
+        </ul>
+
+        <h3>And two that changed the business</h3>
+        <ul>
+          <li><strong>A cooperative founder, 16 September</strong> warned a typhoon &ldquo;might actually destroy the bioreactor and release the <i>Bacillus subtilis</i> inside.&rdquo; The reactor moved indoors; only the sensor stays in the field.</li>
+          <li><strong>An extension-station director, 12 October:</strong> &ldquo;Pick one or two specific crops. If you spread out, you are not focused.&rdquo; Rice was dropped for cherry tomato and strawberry.</li>
+        </ul>
+
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/stakeholder-map.webp">
+            <img src="assets/figures/stakeholder-map.webp" alt="Stakeholder map with four lobes: farmers, industry, public sector and experts." />
+          </button>
+          <figcaption>Stakeholder map of all the people we have engaged with — 31 voices across farmers and target customers, industry, the public sector and academic experts.</figcaption>
+        </figure>
+
+        <p>
+          <strong>Farmer Huiwen Chen, Tamsui, 21 July 2026:</strong> &ldquo;As long as it benefits
+          the plants and does not disrupt the balance of nature, I am very willing to try any new
+          technology. This gives me more time to do what I love most — farming.&rdquo;
+        </p>
+      </article>
+
+      <!-- DESIGN -------------------------------------------------------- -->
+      <article class="pane" id="pane-design" data-pin="Methodology" data-title="Four modules, one device" data-print-title="Methodology — the circuit">
+        <p class="lede">
+          A green-light receiver, a secretion tag and a cargo, assembled by MoClo into one
+          Level 2 device in a <i>B. subtilis</i> shuttle vector: green light in, secreted
+          ACC deaminase out.
+        </p>
+
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/circuit-modules.webp">
+            <img src="assets/figures/circuit-modules.webp" alt="Four functional modules of the ReLEAF light-responsive circuit." />
+          </button>
+          <figcaption>Four functional modules of the ReLEAF light-responsive circuit. Each module can be assembled and modified independently.</figcaption>
+        </figure>
+
+        <div class="rows">
+          <div><span>Level 2 device, <b>BBa_260MVA1K</b> — CcaSR-Csn-AcdS-Histag</span><b>10,293 bp</b></div>
+          <div><span>Registry entries submitted</span><b>35</b></div>
+          <div><span>Published with BBa IDs · drafts</span><b>34 · 1</b></div>
+          <div><span>Parts carrying characterisation data</span><b>3</b></div>
+          <div><span>Chassis</span><b><i>B. subtilis</i> WB800</b></div>
+        </div>
+
+        <h3>Three cargoes, one claim</h3>
+        <ul>
+          <li><strong>AcdS</strong> (ACC deaminase, <i>Pseudomonas putida</i> UW4) — the cargo every characterised construct carries, and the only one the reactor has produced and assayed.</li>
+          <li><strong>AtLEA14</strong> (At1g01470) and <strong>BoPep4</strong>, a 23-residue broccoli elicitor peptide — registered, expressed, screened on plants. BoPep4 is the only one with structure modelling: an mRNA folding analysis and a molecular-dynamics study of the wild type, a truncation ladder and the apo receptor at pH 5.5.</li>
+        </ul>
+        <p>
+          All three are claimed as <strong>abiotic-stress biostimulants</strong> and nothing else.
+          That is a regulatory decision as much as a scientific one — see <em>Safety &amp; rules</em>.
+        </p>
+
+        <h3>Thirty-four engineering cycles, five tracks</h3>
+        <div class="rows">
+          <div><span>Cloning — three parallel pipelines</span><b>12</b></div>
+          <div><span>Bioreactor (four of them on cells)</span><b>8</b></div>
+          <div><span>In-line photometer</span><b>6</b></div>
+          <div><span>Light plate apparatus</span><b>4</b></div>
+          <div><span>Hydroponics plate</span><b>4</b></div>
+        </div>
+
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/level2-gel.webp">
+            <img src="assets/figures/level2-gel.webp" alt="Gel with three ACDI clones across three junctions, nine correct bands." />
+          </button>
+          <figcaption>19 September 2026, the strongest cloning evidence the project has. Three clones across three internal junctions — 375, 632 and 661 bp — nine correct junctions saying the four modules assembled in the right order. <b>The device has never been sequenced end to end.</b></figcaption>
+        </figure>
+      </article>
+
+      <!-- MODELLING ----------------------------------------------------- -->
+      <article class="pane" id="pane-modelling" data-pin="Model" data-title="GRAFT, and the order it stopped us sending" data-print-title="Modelling — protein design">
+        <p class="lede">
+          Six blocks — Generate, Restraints, Assembly, Flex, Triage, and codon optimisation —
+          run on BoPEP4, LEA14 and ACC deaminase. Nine molecular-dynamics trajectories,
+          30 ns each, 270 ns and 25.9 GPU-hours in total.
+        </p>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/graft-pipeline.webp">
+            <img src="assets/figures/graft-pipeline.webp" alt="The GRAFT pipeline: Generate, Restraints, Assembly, Flex, Triage." />
+          </button>
+          <figcaption>The GRAFT pipeline. Each block declares its acceptance gate before it runs, so a design can fail in public.</figcaption>
+        </figure>
+
+        <h3>The result that changed a DNA order</h3>
+        <p>
+          We were going to purify BoPEP4 with a <strong>C-terminal 6×His tag</strong>. Simulated, it
+          abolished the one contact the peptide depends on — the Asn23 clamp on PEPR1, five
+          contacts holding the C-terminus, not a single salt bridge. The tagged construct
+          <strong>passed all four distance-only acceptance criteria while every atom-resolved
+          measure read 0.0%</strong>. The tag moved to the N-terminus for every construct ordered
+          after 16 August.
+        </p>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/alanine-scan.webp">
+            <img src="assets/figures/alanine-scan.webp" alt="Alanine scan of BoPEP4 against PEPR1, one bar per residue from Ser6 to Asn23." />
+          </button>
+          <figcaption>BoPEP4 alanine scan against PEPR1, residue by residue: binding hotspots, structural signals and mutation-tolerant positions.</figcaption>
+        </figure>
+
+        <h3>Two designs we withdrew, and one anchor nobody had published</h3>
+        <ul>
+          <li><strong>K18R, withdrawn.</strong> Lys18–Asp348 held in only 53.7% of frames across a 2.55–9.37 Å swing, and a published alanine scan shows position 18 is fully active without it.</li>
+          <li><strong>ACCD F156C was designed against the wrong organism's sequence</strong> — caught by alignment before the DNA order went out.</li>
+          <li><strong>Lys7–Asp129, 2.81 Å in 98.7% of frames</strong>, is absent from the published hotspot lists. Its loss, not shortening as such, explains why the 9–23 truncation is unstable.</li>
+        </ul>
+
+        <h3>ACC deaminase: modelled, then deliberately left alone</h3>
+        <p>
+          The AlphaFold model of <i>Pseudomonas putida</i> UW4 AcdS (mean pLDDT 97.7) superposed
+          onto the PLP-bound crystal structure at <strong>0.61 Å backbone RMSD over 331 residues</strong>,
+          with all ten catalytic residues matching. We then sent <strong>no mutant</strong>: on an
+          enzyme, the largest available gain is a change to the medium it works in, not to the
+          protein.
+        </p>
+
+        <div class="caveat">
+          <b>None of this has been checked at the bench.</b> No binding assay, no thermal shift,
+          no plant. 30 ns is three to six orders of magnitude short of a dissociation event, so
+          nothing here is an affinity or a free energy. Docking produced <b>0 high, 3 medium and
+          26 acceptable</b> CAPRI-graded models and no model within 4 Å of the crystal; an audit
+          found the HADDOCK score <b>93% explainable by peptide length and net charge alone</b>.
+          The LEA14 interface failed its pre-declared AlphaFold gate (0.16 against controls of
+          0.85 and 0.78), so no model of that complex was ever published.
+        </div>
+      </article>
+
+      <!-- 01 SENSE ------------------------------------------------------ -->
+      <article class="pane" id="pane-sense" data-pin="Station 01" data-title="Sense — a leaf, not the air" data-print-title="Station 01 · Sense">
+        <p class="lede">A sensor at the canopy reads leaf temperature and leaf wetness, because a leaf is warmer than the air around it and the difference is the signal.</p>
+        <p>
+          Air temperature and humidity, and the public weather forecast, come in alongside it.
+          The sensor stays outdoors; after a cooperative founder pointed out what a typhoon
+          would do to a reactor in a field, the reactor itself moved indoors.
+        </p>
+        <div class="caveat">
+          <b>Bench tested, not field proven.</b> Over 540 paired readings on 10 October the leaf
+          sensor read <b>+1.2 to +1.9 °C</b> warmer than air, and the site means differed
+          (+1.71 ± 0.20, +1.31 ± 0.19, +0.47 ± 0.46 °C) — so one fixed offset cannot correct it.
+          Leaf wetness read <b>0.0% throughout</b>: the sensor was never wetted, so its response
+          is untested. This is the weakest link in the chain and we say so.
+        </div>
+      </article>
+
+      <!-- 02 PREDICT ---------------------------------------------------- -->
+      <article class="pane" id="pane-predict" data-pin="Station 02" data-title="Predict — the digital twin" data-print-title="Station 02 · Predict">
+        <p class="lede">
+          The twin shows what the culture is doing, raises an alarm when a reading drifts,
+          predicts biomass a few hours ahead, and judges from the forecast whether the
+          protectant will be ready when it is needed.
+        </p>
+        <p>
+          It is a twin, not a model or a shadow, because the decision returns to the machine.
+          The honest limit: so far the models have run on <strong>recorded data after each run</strong>,
+          and a person makes every decision.
+        </p>
+
+        <h3>It caught a failing instrument before the instrument knew</h3>
+        <p>
+          An autoencoder trained on the healthy first 120 hours of a 434-hour run flagged the
+          photometer at <strong>216.3 h</strong>. The optical density channel failed at
+          <strong>243.0 h</strong> — <strong>26.7 hours later</strong>.
+        </p>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/run434-alarm.svg">
+            <img src="assets/figures/run434-alarm.svg" alt="Optical density and the photometer reference channel over a 434-hour run, with the alarm marked at 216.3 hours." />
+          </button>
+          <figcaption>Optical density (top) and the photometer's reference channel (bottom) over the 434-hour run, with the sensor alarm at 216.3 h marked.</figcaption>
+        </figure>
+
+        <h3>A forecast registered before the run</h3>
+        <p>
+          On 1 October, before any WB800 run, we registered a predicted growth rate of
+          <strong>r = 0.2986 h⁻¹</strong> with a 90% interval of 0.2705–0.3300. The run returned
+          <strong>0.286 ± 0.010 h⁻¹</strong> — inside the interval.
+        </p>
+        <div class="caveat">
+          <b>Only the rate passed.</b> Curve shape and time-to-OD-0.5 were not scored and both
+          missed: the prior's trace is 30% off over the first seven hours, and the culture blew
+          through the prior's ceiling before hour 7. A Kalman forecast beat persistence by
+          41% at 2 h on one run and by <b>0% at 2 h</b> on another.
+        </div>
+      </article>
+
+      <!-- 03 INDUCE ----------------------------------------------------- -->
+      <article class="pane" id="pane-induce" data-pin="Station 03" data-title="Induce — the farmer approves, light does the rest" data-print-title="Station 03 · Induce">
+        <p class="lede">
+          When predicted stress approaches the threshold, the app asks the farmer to approve
+          the run. Green light then switches the CcaS/CcaR circuit on; red switches it off.
+          No chemical inducer, no one opening the vessel.
+        </p>
+        <div class="rows">
+          <div><span>Induction light, built as a 3 m LED strip</span><b>~535 nm</b></div>
+          <div><span>Off signal</span><b>~670 nm</b></div>
+          <div><span>CcaSR activation half-time</span><b>105.1 ± 1.5 min</b></div>
+        </div>
+        <p>
+          That half-time matters more than it looks: it makes the control loop dead-time
+          dominated, which is why the twin forecasts hours ahead rather than reacting.
+        </p>
+
+        <h3>Green does more than red — for three hours</h3>
+        <p>
+          On the light plate, ACC deaminase activity under green light reached
+          <strong>0.1249 mM</strong> α-ketobutyrate against <strong>0.0089 mM</strong> under red at
+          13 h — a <strong>14-fold</strong> ratio. By 16 h the comparison had inverted. Across the
+          short run, protein stayed flat at 2.6–3.2 µg/mL under both colours while activity rose
+          and green led at every point.
+        </p>
+        <figure class="plate-fig duo">
+          <button type="button" data-zoom="assets/figures/og-dnph.webp">
+            <img src="assets/figures/og-dnph.webp" alt="DNPH activity over time under green and red light." />
+          </button>
+          <button type="button" data-zoom="assets/figures/og-elisa.webp">
+            <img src="assets/figures/og-elisa.webp" alt="ELISA concentration over time under green and red light." />
+          </button>
+        </figure>
+        <figcaption style="font-size:.74em;color:var(--gray-600);line-height:1.44">
+          Activity (left) rises and green leads throughout; protein (right) stays flat. The pair
+          is the honest version of this result: the switch changes what the enzyme does before it
+          changes how much of it there is.
+        </figcaption>
+
+        <div class="caveat">
+          <b>Not a clean dial, and not yet in the reactor.</b> Red did not switch expression off.
+          CcaSR needs about 672 nm to close and <b>our red LEDs emit at 640 nm</b>; well-to-well
+          cross-talk is the other candidate, and we have tested neither. Growth was unaffected by
+          colour, so the difference is not biomass. Every integrated reactor run used ACC
+          deaminase under a <b>constitutive</b> promoter — <b>no reactor number on this poster is
+          the light switch doing anything.</b>
+        </div>
+      </article>
+
+      <!-- 04 SECRETE ---------------------------------------------------- -->
+      <article class="pane" id="pane-secrete" data-pin="Station 04" data-title="Secrete — one culture, run continuously" data-print-title="Station 04 · Secrete">
+        <p class="lede">
+          Unlike a batch fermenter the cells are not harvested after each cycle: the culture
+          stays in circulation while product is removed continuously, so one culture supports
+          repeated production.
+        </p>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/rig-incubator.webp">
+            <img src="assets/figures/rig-incubator.webp" alt="The integrated bioreactor in its incubator: culture bottle on a stirrer, product bottle, photometer and boards, pump on top." />
+          </button>
+          <figcaption>The integrated bioreactor in its incubator. The culture bottle on its stirrer, the product bottle, the photometer and the boards; the pump sits on top. <b>Every number on this poster came off this rig.</b></figcaption>
+        </figure>
+        <div class="rows">
+          <div><span>Working volume</span><b>1 L</b></div>
+          <div><span>Stirring · temperature</span><b>200 rpm · 37 °C</b></div>
+          <div><span>Operating flow · transmembrane pressure</span><b>263 mL/min · 0.30 bar</b></div>
+          <div><span>Wall shear (maker's window 2,000–6,000 s⁻¹)</span><b>~4,064 s⁻¹</b></div>
+        </div>
+
+        <h3>Three days of protectant, measured</h3>
+        <p>
+          Nine shell-side samples over 72 hours, each harvested by closing the pinch valve for
+          60 seconds. ACC deaminase stayed above 2 µg/mL throughout, peaking at
+          <strong>6.5 µg/mL at 12 h</strong> and settling to 2.5–3.0 µg/mL from 36 h.
+        </p>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/permeate-72h.webp">
+            <img src="assets/figures/permeate-72h.webp" alt="Shell permeate over 72 hours: ELISA concentration, DNPH volumetric activity, and specific activity." />
+          </button>
+          <figcaption>Shell permeate from the continuously operating bioreactor contains recombinant secretory ACC deaminase. (A) ELISA concentration stays above 2 µg/mL through 72 h. (B) DNPH volumetric activity. (C) Specific activity.</figcaption>
+        </figure>
+        <p>
+          Panel C is the one that complicates the harvest argument. Concentration falls after
+          12 h, but <strong>specific activity climbs from under 1 U/mg to 6.3 U/mg at 18 h and
+          holds 5–8.4 U/mg to the end</strong>: the later samples are less protein doing
+          proportionally more. We think that lag is post-secretory maturation — cofactor loading
+          and oligomer assembly — but <em>we have not tested it directly</em>.
+        </p>
+        <div class="caveat">
+          <b>Both assays are single wells.</b> ACC deaminase fell below the bottom of the ELISA
+          standard curve, so those concentrations are <b>extrapolations, not quantities</b>. In the
+          comparison table a <b>plasmid-free WB800 control read 4.6–5.5 µg/mL</b> — the same range
+          as four of the six constructs beside it — so no difference in that table can be
+          attributed to expression. The assays cannot yet set how long to induce; a person still
+          decides.
+        </div>
+      </article>
+
+      <!-- 05 SEPARATE --------------------------------------------------- -->
+      <article class="pane" id="pane-separate" data-pin="Station 05" data-title="Separate — the barrier is the product line" data-print-title="Station 05 · Separate">
+        <p class="lede">
+          One 0.2 µm hollow-fiber cartridge both retains the cells and recovers the product,
+          so the process has no downstream train and the containment barrier <em>is</em> the
+          recovery barrier.
+        </p>
+        <div class="rows">
+          <div><span>Membrane, modified PES</span><b>0.2 µm</b></div>
+          <div><span>Area · fibers</span><b>200 cm² · 11</b></div>
+          <div><span><i>B. subtilis</i> cell size</span><b>0.25–1.0 µm</b></div>
+          <div><span>Effective open fibers, from hydraulics</span><b>≈11 of 11</b></div>
+          <div><span>Shear from pressure vs from flow, agreement</span><b>2.8%</b></div>
+        </div>
+
+        <h3>The containment result</h3>
+        <p>
+          After 24 hours running, medium was drawn from both sides of the membrane and plated
+          on LB agar. The lumen plate grew colonies. <strong>The shell plate grew none</strong>, on
+          two separate platings.
+        </p>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/containment-plates.webp">
+            <img src="assets/figures/containment-plates.webp" alt="Two LB agar plates: lumen-side medium with colonies, shell-side medium with none." />
+          </button>
+          <figcaption>Bacterial growth comparison between the lumen side (a) and shell side (b) of the operating bioreactor, plated and incubated at 37 °C for 24 h. Growth was observed in the lumen sample, while no colonies were detected in the shell-side medium. <b>No quantitative log reduction measurement was performed.</b></figcaption>
+        </figure>
+        <p>
+          A Western blot run on the same system puts the product on both sides of the barrier the
+          cells cannot cross: anti-His bands at 35–48 kDa against a theoretical 41 kDa.
+        </p>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/wb-lumen-shell.webp">
+            <img src="assets/figures/wb-lumen-shell.webp" alt="Anti-His Western blot of cell lysate, lumen medium and shell medium from 14 to 44 hours." />
+          </button>
+          <figcaption>Anti-His detection of recombinant ACC deaminase in cell lysate, lumen medium and shell medium at 14 to 44 h. <b>The Results and Measurement pages read the faintness of the medium lanes differently; we report the blot, not a verdict.</b></figcaption>
+        </figure>
+        <div class="caveat">
+          <b>We write the membrane as &ldquo;designed to retain cells&rdquo;</b> until retention is
+          validated. These are two platings with no replicates and no recorded detection limit,
+          so they are consistent with retention but establish <b>no containment efficiency</b>.
+          Debris and vesicles of 20–200 nm may still cross alongside the protein.
+        </div>
+      </article>
+
+      <!-- 06 APPLY ------------------------------------------------------ -->
+      <article class="pane" id="pane-apply" data-pin="Station 06" data-title="Apply — by hand, today" data-print-title="Station 06 · Apply">
+        <p class="lede">
+          The farmer collects the protectant from the harvest bottle, dilutes it by the factor
+          the app states, and sprays the crop. No laboratory skills are needed, and no one
+          handles live culture: the cartridge is sealed, dropped in from above, and opens once
+          seated.
+        </p>
+        <div class="rows">
+          <div><span>Commercial cabinet (W×D×H) — <i>designed, not built</i></span><b>400 × 240 × 620 mm</b></div>
+          <div><span>Reactor · leaf sensor · cartridge</span><b>$2,280 · $125 · $90</b></div>
+          <div><span>Reactors per hectare</span><b>~2</b></div>
+          <div><span>Target crops, after October advice</span><b>cherry tomato, strawberry</b></div>
+        </div>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/application-method.webp">
+            <img src="assets/figures/application-method.webp" alt="Four panels: sensor, reactor activating and diluting, application to the field, farmer consulting the app." />
+          </button>
+          <figcaption>The application method of our product.</figcaption>
+        </figure>
+        <p>
+          Spraying by hand is how the system is used now. Dosing into irrigation needs a
+          pre-mix chamber that is drawn but not built, and the commercial cabinet above is a
+          design: <strong>every number on this poster came from the lab rig</strong>, a
+          600 × 900 mm wire-grid panel.
+        </p>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/lab-to-product.webp">
+            <img src="assets/figures/lab-to-product.webp" alt="Two renders side by side: the lab rig we ran and the commercial cabinet we designed." />
+          </button>
+          <figcaption>From the setup we ran to the product we designed from it. <b>The cabinet on the right has not been built.</b></figcaption>
+        </figure>
+      </article>
+
+      <!-- RESULTS ------------------------------------------------------- -->
+      <article class="pane" id="pane-results" data-pin="Results" data-title="Seven runs, and what they settled" data-print-title="Results and Conclusions">
+        <p class="lede">
+          Seven bioreactor runs between June and October, the last four on cells producing
+          ACC deaminase. The machine ended the season holding its own set point unattended
+          for three days.
+        </p>
+
+        <h3>The 77-hour run</h3>
+        <div class="rows">
+          <div><span>Continuous logged run</span><b>77 h</b></div>
+          <div><span>Automatic base doses, target pH 7.00</span><b>53</b></div>
+          <div><span>Peak OD<sub>600</sub>, read in line</span><b>3.34 at 74 h</b></div>
+          <div><span>Pressure trip armed · peak reached</span><b>0.70 · 0.57 bar</b></div>
+          <div><span>Shell-valve protectant collections</span><b>90</b></div>
+        </div>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/run77-growth-ph.webp">
+            <img src="assets/figures/run77-growth-ph.webp" alt="Growth curve above, pH with a dosing sawtooth below, over 77 hours." />
+          </button>
+          <figcaption>The complete growth curve, with pH beneath it. The sawtooth is the dosing: each jump is base going in, the decay between jumps is the culture acidifying the medium again.</figcaption>
+        </figure>
+        <p>
+          Then the base ate the machine. <strong>1 M KOH degraded the Luer valve on the dosing
+          line, and four valves broke in succession</strong>, so automatic dosing was abandoned and
+          pH adjusted by hand. Only the valve on the KOH line was affected, so the rest of the
+          data stands — and the fix is an alkaline-resistant valve.
+        </p>
+
+        <h3>The seven runs, including the parts we discard</h3>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/seven-runs.svg">
+            <img src="assets/figures/seven-runs.svg" alt="Optical density against time for seven bioreactor runs, with unused readings in grey." />
+          </button>
+          <figcaption>The seven bioreactor runs of <i>B. subtilis</i>: optical density at 600 nm against time. <b>Grey marks the readings the twin does not use.</b></figcaption>
+        </figure>
+
+        <h3>An instrument that cost 3% of the one it replaces</h3>
+        <p>
+          The in-line photometer reads OD<sub>600</sub> with no sample drawn. Against a benchtop
+          BioDrop it tracked a mass standard at <strong>R² &gt; 0.999</strong> with a
+          <strong>median paired difference of 3.8%</strong> — so we applied no calibration
+          transform at all, because fitting to the reference would tie our readings to the
+          reference's own error. It cost <strong>US$372</strong> against roughly US$15,000.
+        </p>
+        <p>
+          We had spent three rebuilds blaming our optics. The real cause was the blank: we were
+          blanking against growth medium and the BioDrop is calibrated on distilled water.
+        </p>
+
+        <h3>All three protectants are secreted</h3>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/elisa-three.webp">
+            <img src="assets/figures/elisa-three.webp" alt="ELISA of ACCD, LEA14 and BoPep4 production by WB800." />
+          </button>
+          <figcaption>ELISA of ACCD, LEA and BoPep4 production. ACCD reached about 16 µg/mL, while LEA and BoPep4 were each about 6 µg/mL.</figcaption>
+        </figure>
+        <p>
+          A cofactor control does the same job from the other side: adding PLP raised activity to
+          roughly 39 and 48 nmol α-ketobutyrate mL⁻¹ h⁻¹ for the two signal peptides, against 21
+          and 32 without it — the enzyme behaves like the enzyme it is meant to be.
+        </p>
+
+        <h3>On plants</h3>
+        <p>
+          <i>Arabidopsis thaliana</i> Col-0 on agar, hydroponics and soil, under NaCl and 37 °C
+          priming. 100 mM NaCl is the window where rescue is possible: plants show a strong
+          stress response without dying. In soil it took 300 mM.
+        </p>
+        <div class="rows">
+          <div><span>Root length at 0 / 75 / 100 / 150 mM NaCl</span><b>75.0 / 34.8 / 11.0 / 1.4 mm</b></div>
+          <div><span>5 mM trehalose at 100 mM NaCl — chlorophyll</span><b>~8.7× , p &lt; 0.0001</b></div>
+          <div><span>ACC deaminase pre-treatment, chlorophyll</span><b>1.74 vs 1.03 mg g⁻¹</b></div>
+          <div><span>BoPep4 at 1/40 in hydroponics</span><b>greenest of its set</b></div>
+        </div>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/trehalose-readouts.webp">
+            <img src="assets/figures/trehalose-readouts.webp" alt="Four-panel bar chart: fresh weight, normalised chlorophyll, total chlorophyll and root length across a salt ladder." />
+          </button>
+          <figcaption>5 mM trehalose significantly enhanced salt tolerance under 100 mM NaCl-induced stress (red box). <b>Trehalose is a commercial reagent we used to validate the protocol — it was never part of the circuit.</b></figcaption>
+        </figure>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/accd-plates.webp">
+            <img src="assets/figures/accd-plates.webp" alt="A grid of agar plates: salt levels against control, pre-, co- and post-treatment." />
+          </button>
+          <figcaption>ACC deaminase applied before stress gave visibly greater rosette area and chlorophyll retention. Set 9, day 8, before contamination spread. <b>ND: the 100 mM post-treatment plate was excluded for mould.</b></figcaption>
+        </figure>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/accd-heat-charts.webp">
+            <img src="assets/figures/accd-heat-charts.webp" alt="Fresh weight, normalised chlorophyll and total chlorophyll for ACCD under 37 °C heat stress, with significance asterisks." />
+          </button>
+          <figcaption>ACCD under 37 °C heat stress against the untreated heat control. (a) Fresh weight. (b) Fresh-weight-normalised relative chlorophyll. (c) Relative total chlorophyll a+b. Nine seedlings per condition; **** p &lt; 0.0001. <b>Panels (b) and (c) must be read together: normalising by fresh weight can invert a trend when stress has destroyed the denominator.</b></figcaption>
+        </figure>
+        <p>
+          <strong>Conclusion.</strong> We have a machine that grows a secreting culture for three
+          days unattended, keeps every cell inside a membrane that still passes the product, and
+          hands a cell-free protectant to a person with no laboratory training. We do not yet
+          have a validated dose.
+        </p>
+      </article>
+
+      <!-- LIMITS -------------------------------------------------------- -->
+      <article class="pane" id="pane-limits" data-pin="Limits" data-title="What we have not shown" data-print-title="What we have not shown">
+        <p class="lede">
+          A poster that only lists what worked is not a result. These are the gaps our own
+          pages declare, and they are the work that follows.
+        </p>
+        <div class="caveat" style="border-left-color:var(--rust-700);background:var(--rust-100)">
+          <b>The loop on the left has never been closed end to end.</b> In the wiki's own words:
+          no forecast has yet driven a light, and no light driven by a forecast has reached a
+          culture. In every plant trial the permeate was collected and applied <b>by hand</b>.
+          The six stations are each built and each measured; the chain between them is the work
+          that follows.
+        </div>
+        <ul>
+          <li><span class="chip no">not shown</span> <strong>Light control in the loop.</strong> Every integrated run used a constitutive promoter. No reactor number here is the optogenetic switch doing anything.</li>
+          <li><span class="chip part">not clean</span> <strong>A graded light response.</strong> Red did not switch expression off — our red LEDs emit at 640 nm where CcaSR needs about 672 nm, and well-to-well cross-talk is equally plausible. Neither explanation has been tested.</li>
+          <li><span class="chip no">failed</span> <strong>The AmilCP colour reporter.</strong> Despite repeated experiments the medium stayed colourless, and absorbance with and without the construct was indistinguishable.</li>
+          <li><span class="chip part">extrapolated</span> <strong>ACC deaminase concentrations.</strong> All four measurements fell below the standard curve, and a plasmid-free host control read in the same range as four of six constructs.</li>
+          <li><span class="chip part">confounded</span> <strong>Protectant versus medium.</strong> Culture volume was not standardised across groups, so ACC deaminase could not be separated from its medium — and the untreated group sometimes did best, suggesting WB800 culture itself can harm plants at some concentrations.</li>
+          <li><span class="chip part">n = 1</span> <strong>Replication.</strong> Only two plant runs have a repeat, and each has two trials, not three. Soil fresh weight is one pot per condition.</li>
+          <li><span class="chip part">unsettled</span> <strong>Timing.</strong> Agar and soil do not rank pre-, co- and post-treatment the same way, so no best timing is established.</li>
+          <li><span class="chip no">not ours</span> <strong>The clearest rescue is trehalose</strong>, at 8.7-fold — and trehalose was a commercial reagent used to validate the protocol, never part of the circuit.</li>
+          <li><span class="chip no">not built</span> <strong>The commercial cabinet, refill cartridges, irrigation dosing, the droplet-leak sensor and the pressure interlock</strong> are designs or firmware plans.</li>
+          <li><span class="chip part">unsequenced</span> <strong>The Level 2 device</strong> is verified at three internal junctions by restriction digest, never sequenced end to end.</li>
+          <li><span class="chip info">approximate</span> <strong>The photometer measures turbidity, not cells.</strong> Both calibrations used non-living particles, and no manual samples were drawn alongside the in-line readings. Converting optical density to cell counts would need plate counts we have not run.</li>
+          <li><span class="chip part">two stresses</span> <strong>Only heat and salinity were tested.</strong> Drought and disease are unaddressed experimentally, and <strong>BoPep4 co-treatment made damage worse</strong> — it inhibits growth even without stress.</li>
+          <li><span class="chip no">untested</span> <strong>Everything from the modelling.</strong> No binding assay, no thermal shift, no plant. Docking establishes molecular recognition only; it does not establish Ca²⁺ influx, ROS burst, MAPK activation or PEPR1–BAK1 phosphotransfer.</li>
+        </ul>
+        <p style="font-size:.78em;color:var(--gray-500)">
+          Two of these were found by the gates we set before running, not after. That is the
+          point of setting them.
+        </p>
+      </article>
+
+      <!-- SAFETY -------------------------------------------------------- -->
+      <article class="pane" id="pane-safety" data-pin="Safety" data-title="Containment first, and a claim we chose" data-print-title="Safety, Security and Regulation">
+        <p class="lede">
+          All wet-lab work is BSL-1 on non-pathogenic <i>Bacillus subtilis</i>. Every member
+          retakes the biosafety exam until a full score. Waste is autoclaved at 121 °C for
+          15–30 min, liquids bleached.
+        </p>
+        <p>
+          In the reactor the 0.2 µm hollow-fiber membrane is the primary barrier, backed by
+          transmembrane-pressure leak detection, droplet-leak sensing and shell-side turbulence
+          monitoring — the last two <strong>designed, not yet fitted</strong>. A DURC assessment
+          and restricted access sit alongside. Taiwan's applicable contained-use framework is,
+          by our own reading, <strong>still unconfirmed</strong>.
+        </p>
+
+        <h3>Why we call these biostimulants</h3>
+        <p>
+          Ask not <em>what molecule is this</em> but <em>what is the product intended to do</em>.
+          We claim <strong>abiotic-stress tolerance only</strong> — and park the antifungal
+          application as later work on a different pathway — because that is what decides the
+          regulatory route:
+        </p>
+        <div class="rows">
+          <div><span>EU — non-microbial plant biostimulant</span><b>PFC 6(B), 2019/1009</b></div>
+          <div><span>Taiwan — plant growth auxiliary materials</span><b>Fertilizer Management Act</b></div>
+          <div><span>Review once the file is complete (APHIA)</span><b>~30 days</b></div>
+          <div><span>Our own estimate to assemble that file</span><b>1–2 years</b></div>
+          <div><span>If we claimed pesticide activity instead</span><b>several years</b></div>
+        </div>
+        <p>
+          The three pieces are assessed separately: the bioreactor as equipment, the engineered
+          culture as a contained-use GMM, the cell-free output as an agricultural product.
+          <strong>Containment is not only an engineering requirement; it determines the exposure
+          pathway regulators must consider.</strong>
+        </p>
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/venn-markets.webp">
+            <img src="assets/figures/venn-markets.webp" alt="Venn diagram of overlapping regulatory themes across the EU, Taiwan and the United States." />
+          </button>
+          <figcaption>Overlapping regulatory themes across the European Union, Taiwan and the United States on the abiotic pathway.</figcaption>
+        </figure>
+        <p style="font-size:.78em">
+          One finding we did not want: after deeper research into organic regulation we confirmed
+          <strong>ReLEAF cannot be applied on certified organic farms</strong>.
+        </p>
+      </article>
+
+      <!-- TEAM ---------------------------------------------------------- -->
+      <article class="pane" id="pane-team" data-pin="Team" data-title="GEMS Taiwan, and the people who corrected us" data-print-title="Attributions, Acknowledgements and References">
+        <figure class="plate-fig">
+          <button type="button" data-zoom="assets/figures/group.webp">
+            <img src="assets/figures/group.webp" alt="The 2026 GEMS Taiwan ReLEAF team in matching green hoodies." />
+          </button>
+          <figcaption>The 2026 GEMS Taiwan team. The leaf palette on this poster is taken from the hoodie.</figcaption>
+        </figure>
+
+        <h3>What we hand to the next team</h3>
+        <ul>
+          <li><strong>35 Registry entries</strong> built as five swappable modules, so a cargo can be dropped into the registered open cassette.</li>
+          <li><strong>Four open-hardware devices</strong> with print files and assembly guides: the perfusion bioreactor, the US$372 in-line OD<sub>600</sub> photometer, a US$65.52 dual-wavelength light plate, and a clip-together floating hydroponics plate.</li>
+          <li><strong>An MIT-licensed digital twin</strong> on iGEM GitLab.</li>
+          <li><strong>A 15-page standardised <i>Arabidopsis</i> stress protocol</strong>, and a twentyfold scale-down of the Penrose–Glick DNPH assay onto a 96-well plate, so ACC deaminase activity can be measured in any chassis's supernatant.</li>
+        </ul>
+
+        <h3>Instructors and advisors</h3>
+        <p style="font-size:.82em">
+          Chars Hsieh, Gabriel Ng, Gina Yu (Wet Lab Instructors) · Timmy (Dry Lab Instructor) ·
+          Jessie Lau (Human Practices Instructor) · Dr. Pak (Project Advisor).
+          Student Advisors: Dylan Huang, Hachi Wu, Neo Su, Venus Tay.
+        </p>
+
+        <h3>With thanks to</h3>
+        <div class="thanks" aria-label="Sponsors and partners">
+          <img src="assets/figures/thanks/greenmedia.webp" alt="Green Media" />
+          <img src="assets/figures/thanks/islsdr.webp" alt="2nd ISLSDR, NCHU" />
+          <img src="assets/figures/thanks/chbiotech.webp" alt="CH Biotech" />
+          <img src="assets/figures/thanks/worldveg.webp" alt="World Vegetable Center" />
+          <img src="assets/figures/thanks/yeshealth.webp" alt="Yes Health iFarm" />
+          <img src="assets/figures/thanks/watergarden.webp" alt="Water Garden Organic Farmers’ Market" />
+          <img src="assets/figures/thanks/expofarmersmarket.webp" alt="Taipei Expo Farmers Market" />
+          <img src="assets/figures/thanks/idt.webp" alt="IDT" />
+          <img src="assets/figures/thanks/snapgene.webp" alt="SnapGene" />
+          <img src="assets/figures/thanks/twist-bioscience.webp" alt="Twist Bioscience" />
+          <img src="assets/figures/thanks/genscript.webp" alt="GenScript" />
+          <img src="assets/figures/thanks/claude.webp" alt="Claude" />
+        </div>
+        <p style="font-size:.8em">
+          And Tamsui Happy Farm, whose farmer gave us both the threshold argument and the seed
+          exchange; and the 31 stakeholders who told us what was wrong with each draft.
+        </p>
+
+        <h3>References</h3>
+        <p style="font-size:.76em;line-height:1.5">
+          Central Weather Administration, CODiS monthly means 1991–2020 ·
+          Ministry of Agriculture, 農業統計年報 114年 ·
+          NSTC Center for Disaster Reduction, TCCIP ·
+          ERA5 reanalysis ·
+          FAO, Global Report on Food Crises 2025 ·
+          Weber E. <i>et al.</i> (2011) Modular Cloning ·
+          Penrose D.M. &amp; Glick B.R. (2003) ACC deaminase assay ·
+          Tabor J.J. <i>et al.</i>, CcaS/CcaR green-light system ·
+          Regulation (EU) 2019/1009 on fertilising products ·
+          Taiwan Fertilizer Management Act.
+        </p>
+      </article>
+
+    </div>
+
+    <footer class="docs-foot">
+      <b>ReLEAF · GEMS Taiwan · iGEM 2026 · Biomanufacturing Village.</b>
+      © 2026 · Content is licensed under a Creative Commons Attribution 4.0 International
+      license. The repository used to create the team wiki is available at
+      gitlab.igem.org/2026/gems-taiwan
+    </footer>
+
+  </section>
+</main>
+
+<!-- the lightbox: a judge should be able to read the data, not squint at it -->
+<div class="lens" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Figure, enlarged">
+  <button class="lens-x" type="button" aria-label="Close figure">&times;</button>
+  <figure>
+    <img src="" alt="" />
+    <figcaption></figcaption>
+  </figure>
+</div>
+
+<script src="assets/poster.js"></script>
+</body>
+</html>
